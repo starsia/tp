@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+public static final String COMMAND_WORD = "remark";
+
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 
