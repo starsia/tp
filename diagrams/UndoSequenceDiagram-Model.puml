@@ -1,0 +1,23 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+participant ":VersionedNetConnect" as VersionedNetConnect MODEL_COLOR
+end box
+
+[-> Model : undoNetConnect()
+activate Model
+
+Model -> VersionedNetConnect : undo()
+activate VersionedNetConnect
+
+VersionedNetConnect -> VersionedNetConnect :resetData(ReadOnlyNetConnect)
+VersionedNetConnect --> Model :
+deactivate VersionedNetConnect
+
+[<-- Model
+deactivate Model
+
+@enduml
