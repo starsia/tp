@@ -108,6 +108,7 @@
       "title": "User Guide",
       "headings": {
         "netconnect-user-guide": "NetConnect User Guide",
+        "table-of-contents": "Table of Contents",
         "quick-start": "Quick start",
         "features": "Features",
         "viewing-help-help": "Viewing help : help",
@@ -124,12 +125,11 @@
         "create-relations-between-profiles-relate": "Create Relations between Profiles : relate",
         "show-relations-associated-to-a-person-showrelated": "Show Relations Associated to a Person : showrelated",
         "open-on-last-state": "Open on Last State",
-        "export-current-view-to-csv-file": "Export Current View to CSV File",
+        "export-current-view-to-csv-file-export": "Export Current View to CSV File : export",
         "never-miss-a-birthday": "Never Miss a Birthday!",
         "exiting-the-program-exit": "Exiting the program : exit",
         "saving-the-data": "Saving the data",
         "editing-the-data-file": "Editing the data file",
-        "caution-if-your-changes-to-the-data-file-makes-its-format-invalid-netconnect-will-discard-all-data-and-start-with-an-empty-data-file-at-the-next-run-hence-it-is-recommended-to-take-a-backup-of-the-file-before-editing-it-furthermore-certain-edits-can-cause-the-netconnect-to-behave-in-unexpected-ways-e-g-if-a-value-entered-is-outside-the-acceptable-range-therefore-edit-the-data-file-only-if-you-are-confident-that-you-can-update-it-correctly": "Caution:\nIf your changes to the data file makes its format invalid, NetConnect will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.\nFurthermore, certain edits can cause the NetConnect to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.",
         "faq": "FAQ",
         "known-issues": "Known issues",
         "command-summary": "Command summary"
