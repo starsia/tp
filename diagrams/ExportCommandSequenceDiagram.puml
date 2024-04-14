@@ -1,0 +1,50 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+mainframe **sd** execute export command
+
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "e:ExportCommand" as ExportCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+participant "m:Model" as Model MODEL_COLOR
+participant "exporter:CsvExporter" as CsvExporter LOGIC_COLOR
+
+
+LogicManager -> ExportCommand : execute(m)
+activate ExportCommand
+
+ExportCommand -> Model : exportCsv(filename)
+activate Model
+
+create CsvExporter
+Model --> CsvExporter : CsvExporter()
+activate CsvExporter
+
+Model --> CsvExporter : execute()
+
+Model --> CsvExporter : getIsSuccessful()
+
+CsvExporter --> Model : IsSuccessful
+
+deactivate CsvExporter
+
+Model --> ExportCommand : IsSuccessful
+
+deactivate Model
+
+create CommandResult
+
+ExportCommand -> CommandResult
+
+activate CommandResult
+
+CommandResult --> ExportCommand
+
+deactivate CommandResult
+
+ExportCommand --> LogicManager : r
+
+deactivate ExportCommand
+@enduml
+

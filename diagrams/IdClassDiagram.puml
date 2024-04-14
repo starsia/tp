@@ -1,0 +1,33 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+Class Person
+Class Address
+Class Email
+Class Id {
+    - {static} nextId : int
+    - Id()
+    -Id(int)
+    +generateNextId() : Id
+    +generateId() : Id
+    +generateTempId(int) : Id
+}
+Class Name
+Class Phone
+Class Tag
+
+Person *--> "1" Id
+Person *--> Name
+Person *--> Phone
+Person *--> Email
+Person *--> Address
+Person *--> Tag
+
+Id -[hidden]right-> Name
+Name -[hidden]right-> Phone
+Phone -[hidden]right-> Address
+Address -[hidden]right-> Email
+@enduml

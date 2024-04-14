@@ -1,0 +1,27 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+
+title Activity: Findnum command
+start
+:User executes findnum command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+switch ()
+case ([One valid number provided])
+    :Return list containing
+    matching contact;
+case ([Multiple valid numbers provided])
+    :Return list containing all
+     matching contacts;
+case ([At least one invalid number])
+    :Show error
+    message;
+
+endswitch
+stop
+@enduml

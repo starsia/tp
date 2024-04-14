@@ -22,6 +22,12 @@ Class JsonAdaptedPerson
 Class JsonAdaptedTag
 }
 
+package "State Storage" #F4F6F6{
+Class "<<interface>>\nStateStorage" as StateStorage
+Class TextNetConnectStorage
+
+}
+
 }
 
 Class HiddenOutside #FFFFFF
@@ -30,12 +36,15 @@ HiddenOutside ..> Storage
 StorageManager .up.|> Storage
 StorageManager -up-> "1" UserPrefsStorage
 StorageManager -up-> "1" NetConnectStorage
+StorageManager -up-> "1" StateStorage
 
 Storage -left-|> UserPrefsStorage
 Storage -right-|> NetConnectStorage
+Storage -right-|> StateStorage
 
 JsonUserPrefsStorage .up.|> UserPrefsStorage
 JsonNetConnectStorage .up.|> NetConnectStorage
+TextNetConnectStorage .up.|> StateStorage
 JsonNetConnectStorage ..> JsonSerializableNetConnect
 JsonSerializableNetConnect --> "*" JsonAdaptedPerson
 JsonAdaptedPerson --> "*" JsonAdaptedTag

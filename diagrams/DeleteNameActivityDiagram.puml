@@ -1,0 +1,28 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+title Activity: Delete with Name
+start
+:User executes delete
+command with Name;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([multiple Person with Name])
+    :Display all Persons with Name;
+    :Show error message;
+    :Prompt user to re-input
+    delete command with Id;
+else ([else])
+    if () then ([Name in list])
+        :Delete Person with Name;
+    else ([else])
+        :Display all Persons;
+        :Show error message;
+    endif
+endif
+stop
+@enduml

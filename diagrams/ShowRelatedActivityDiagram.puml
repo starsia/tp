@@ -1,0 +1,22 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+
+title Activity: showrelated command
+start
+:User executes showrelated command;
+
+
+if () then ([else])
+    :Display error message;
+else ([One valid number (Integer and greater than 0) provided])
+    if () then ([has related profile(s)])
+        :Display list of related profiles;
+    else ([else])
+        :Display empty list;
+    endif
+endif
+stop
+@enduml

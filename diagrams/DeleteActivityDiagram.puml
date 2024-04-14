@@ -1,0 +1,36 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+'credits from: https://forum.plantuml.net/195/is-there-any-support-for-subactivity-or-the-rake-symbol
+sprite $rake <svg width="16" height="16" viewBox="0 0 16 16">
+<path
+    style="fill:#000000"
+    d="M 7,1 H 9 V 7 H 15 V 15 H 13 V 9 H 9 V 15 H 7 V 9 H 3 V 15 H 1 V 7 H 7 Z"
+/>
+</svg>
+
+title Activity: Delete command
+start
+:User executes delete command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+switch ()
+case ([Name provided])
+    :Delete with Name <$rake>;
+case ([Id provided])
+    :Delete with Id;
+    if () then ([Id in list])
+        :Delete Person with Id;
+    else ([else])
+        :Display all Persons;
+        :Show error message;
+    endif
+case ([Both provided])
+    :Show error message;
+endswitch
+stop
+@enduml

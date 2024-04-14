@@ -24,6 +24,7 @@
 !define MODEL_COLOR_T2 #E41F36
 !define MODEL_COLOR_T3 #7B000E
 !define MODEL_COLOR_T4 #51000A
+!define MODEL_MEMBERS #
 
 !define STORAGE_COLOR #A38300
 !define STORAGE_COLOR_T1 #FFE374
@@ -41,6 +42,8 @@ skinparam Package {
 
 skinparam Class {
     FontColor #FFFFFF
+    AttributeFontColor #FFFFFF
+    AttributeIconSize 0
     FontSize 15
     BorderThickness 1
     BorderColor #FFFFFF
@@ -60,6 +63,9 @@ skinparam Sequence {
     BoxPadding 0
     BoxFontColor #FFFFFF
     FontName Arial
+    ReferenceBackgroundColor #F0D3D3
+    ReferenceBorderColor #B30404
+    ReferenceFontStyle normal
 }
 
 skinparam Participant {
@@ -75,5 +81,5 @@ skinparam DefaultTextAlignment center
 skinparam packageStyle Rectangle
 
 hide footbox
-hide members
+hide empty members
 hide circle

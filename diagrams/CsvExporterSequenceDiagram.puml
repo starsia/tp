@@ -1,0 +1,97 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":CsvExporter" as csvExporter LOGIC_COLOR
+participant ":Person" as person MODEL_COLOR
+participant "employee:Employee" as employee MODEL_COLOR
+participant "client:Client" as client MODEL_COLOR
+participant "supplier:Supplier" as supplier MODEL_COLOR
+
+-> csvExporter : execute()
+activate csvExporter
+csvExporter -> csvExporter : createDataList()
+activate csvExporter #DarkSalmon
+loop for each person in persons
+    csvExporter -> csvExporter : convertPersonToStringArray(person)
+    activate csvExporter #LightSalmon
+
+    csvExporter -> person : getId()
+    activate person
+    csvExporter <-- person
+    deactivate person
+
+    csvExporter -> person : getName()
+    activate person
+    csvExporter <-- person
+    deactivate person
+
+    csvExporter -> person : getPhone()
+    activate person
+    csvExporter <-- person
+    deactivate person
+
+    csvExporter -> person : getEmail()
+    activate person
+    csvExporter <-- person
+    deactivate person
+
+    csvExporter -> person : getAddress()
+    activate person
+    csvExporter <-- person
+    deactivate person
+
+    csvExporter -> person : getRemark()
+    activate person
+    csvExporter <-- person
+    deactivate person
+
+    csvExporter -> person : getTagsAsString()
+    activate person
+    csvExporter <-- person
+    deactivate person
+
+    alt instance of Employee
+        csvExporter -> employee : getDepartment()
+        activate employee
+        csvExporter <-- employee
+        deactivate employee
+
+        csvExporter -> employee : getJobTitle()
+        activate employee
+        csvExporter <-- employee
+        deactivate employee
+
+        csvExporter -> employee : getSkills()
+        activate employee
+        csvExporter <-- employee
+        deactivate employee
+    else instance of Client
+        csvExporter -> client : getProducts()
+        activate client
+        csvExporter <-- client
+        deactivate client
+
+        csvExporter -> client : getPreferences()
+        activate client
+        csvExporter <-- client
+        deactivate client
+    else instance of Supplier
+        csvExporter -> supplier : getProducts()
+        activate supplier
+        csvExporter <-- supplier
+        deactivate supplier
+
+        csvExporter -> supplier : getTermsOfService()
+        activate supplier
+        csvExporter <-- supplier
+        deactivate supplier
+    end
+    csvExporter --> csvExporter
+    deactivate csvExporter
+end
+csvExporter --> csvExporter
+deactivate csvExporter
+
+@enduml
+
