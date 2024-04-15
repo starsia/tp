@@ -116,7 +116,7 @@ Adds a person (Client, Supplier or Employee) to the address book. Note that each
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS role/ROLE [t/TAG]…​` (other fields specific to the role)
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 role/client t/friend`
+* `add n/Patrick Doe p/98865432 e/patd@example.com a/Patrick street, block 123, #01-01 role/client t/friend`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 role/supplier`
 * `add n/Bob Ye p/8928732 e/boby@example.com a/Blk 11, Clementi Ave 1, #03-32 t/friends t/coreTeam r/requires follow up on pay raise role/employee dept/HR job/Manager skills/Java`
 
@@ -132,7 +132,9 @@ Examples (Supplier):
 * Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS role/ROLE [t/TAG] [tos/TERMS OF SERVICE] [prod/PRODUCT 1] [prod/PRODUCT 2]`
 * `add n/Fiona Kunz p/9482427 e/lydia@example.com a/little tokyo role/Supplier tos/Delivery within 2 weeks prod/Office Supplies prod/Furniture`
 
-**Info:** NetConnect checks for unique profiles by its NAME, PHONE and EMAIL. It does not allow you to create two profiles with identical name, phone number and email.
+<box type="info">
+    Info: NetConnect checks for unique profiles by its NAME, PHONE and EMAIL. It does not allow you to create two profiles with identical name, phone number and email.
+</box>
 
 **Constraints:**
 Constraints for each field. Here are the constraints for each field in the application:
@@ -170,7 +172,10 @@ Examples:
 * `delete i/2` deletes the person with an ID of 2 in the address book.
 * `delete n/John Doe` deletes the person with the name John Doe (if no one else have the same name).
 
-**Warnings:** Due to the destructive nature of this action, NetConnect will require a confirmation from the user before it is executed.
+<box type="warning">
+    Warning: Due to the destructive nature of this action, NetConnect will require a confirmation from the user before it is executed.
+</box>
+
 </section>
 
 <section id="list">
@@ -280,7 +285,9 @@ Clears all entries from the address book.
 
 Format: `clear`
 
-**Warnings:** Due to the destructive nature of this action, NetConnect will require a confirmation from the user before it is executed.
+<box type="warning">
+    Warning: Due to the destructive nature of this action, NetConnect will require a confirmation from the user before it is executed.
+</box>
 
 </section>
 
@@ -318,7 +325,10 @@ Format: `showrelated i/ID`
 
 Example: `showrelated i/1` shows all relations between the profile with ID 1 and all other contacts.
 
-**Info:** If there are no persons related to the provided ID, the interface will show `0 persons listed`.
+
+<box type="info">
+    Info: If there are no persons related to the provided ID, the interface will show `0 persons listed`.
+</box>
 
 </section>
 
@@ -334,6 +344,10 @@ With every change to the command input, NetConnect saves and updates the command
 ## Export Current View to CSV File : `export`
 Retrieve information on a group of profiles at once with this function! This can be useful for consolidating all the emails or contact number at once, or to share information with third parties.
 
+<box type="info">
+    Info: If no filename is provided, the default filename 'contacts.csv' will be used.
+</box>
+
 **To export _all_ profiles in the address book to a CSV file:**
 
 Step 1: `list`
@@ -342,11 +356,11 @@ Step 2: `export`
 
 * The `list` command in the first step is to pull all profiles into the current view.
 
-**To export a _specific_ group of profiles to a CSV file:**
+**To export a _specific_ group of profiles to a CSV file called, say `mailinglist.csv`:**
 
 Step 1: `find [KEYWORD]` or any other function that filters the profiles.
 
-Step 2: `export`
+Step 2: `export mailinglist.csv`
 
 * The first step is to filter the profiles you want to export into the current view.
 
